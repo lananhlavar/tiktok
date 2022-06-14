@@ -5,6 +5,10 @@
     //DefaultLayout
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
+    --black: #000;
+    --text-color: #333;
+    --primary: rgba(254, 44, 85, 1);
+    --white: #fff;
 }
 * {
     box-sizing: border-box;
@@ -12,11 +16,22 @@
     padding: 0;
 }
 html {
-    font-size: 62, 5%;
+    font-size: 62.5%;
 }
 body {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 1.6rem;
-    line-height: 1.5rem;
+    line-height: 1.5;
     text-rendering: optimizeSpeed;
+    color: var(--text-color);
+}
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+a[href] {
+    color: var(--text-color);
+    text-decoration: none;
 }
