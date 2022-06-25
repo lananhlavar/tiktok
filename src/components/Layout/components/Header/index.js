@@ -3,12 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleXmark,
     faSpinner,
-    faMagnifyingGlass,
     faEllipsisVertical,
     faEarthAsia,
     faCircleQuestion,
     faKeyboard,
-    faCloudUpload,
     faUser,
     faCoins,
     faGear,
@@ -25,7 +23,8 @@ import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
 import 'tippy.js/dist/tippy.css';
-
+import { InboxIcon, MessageIcon, SearchIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
@@ -129,16 +128,27 @@ function Header() {
                         <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
 
                         <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            <SearchIcon />
                         </button>
                     </div>
                 </HeadlessTippy>
                 <div className={cx('action')}>
                     {currentUser ? (
                         <>
-                            <Tippy delay={[0, 200]} content="Upload Video" placement="bottom">
+                            <Tippy delay={[0, 50]} content="Upload Video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy delay={[0, 50]} content="Message" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <MessageIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy delay={[0, 50]} content="Inbox" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <InboxIcon />
+                                    <span className={cx('badge')}>12</span>
                                 </button>
                             </Tippy>
                         </>
@@ -150,10 +160,11 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/8f4c076bd857dfa66695a1bc68762592~c5_100x100.jpeg?x-expires=1655967600&x-signature=30YA7Y364XKkZp0gkwwMNSM6KPE%3D"
                                 className={cx('user-avatar')}
                                 alt="tran lan anh"
+                                fallback="https://scontent.fdad3-5.fna.fbcdn.net/v/t39.30808-6/278903135_1715161318816277_1906370448706104724_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=8l4nllJrYxUAX8u6zNk&_nc_ht=scontent.fdad3-5.fna&oh=00_AT9AD9N7IVB4PKPqLFocnJ5QFt-bAk5EKJlSUIP6-EaRHw&oe=62BC9A7F"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
