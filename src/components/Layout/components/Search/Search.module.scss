@@ -13,6 +13,9 @@
     border-radius: var(--search-border-radius);
     padding-left: 16px;
     input {
+        padding-right: 40px;
+
+        font-family: var(--font-family);
         flex: 1;
         color: var(--black);
         font-size: 1.6rem;
@@ -58,6 +61,7 @@
 }
 
 .search-btn {
+    right: 0;
     display: flex;
     align-items: center;
     justify-content: center;

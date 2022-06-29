@@ -11,7 +11,9 @@ import {
     faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
+import { Link } from 'react-router-dom';
 
+import routesConfig from '~/config/routes';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
@@ -93,7 +95,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="Tiktok" />
+                <Link to={routesConfig.home} className={cx('logo-link')}>
+                    <img src={images.logo} alt="Tiktok" />
+                </Link>
                 <Search />
                 <div className={cx('action')}>
                     {currentUser ? (
@@ -127,7 +131,6 @@ function Header() {
                                 src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/8f4c076bd857dfa66695a1bc68762592~c5_100x100.jpeg?x-expires=1655967600&x-signature=30YA7Y364XKkZp0gkwwMNSM6KPE%3D"
                                 className={cx('user-avatar')}
                                 alt="tran lan anh"
-                                fallback="https://scontent.fdad3-5.fna.fbcdn.net/v/t39.30808-6/278903135_1715161318816277_1906370448706104724_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=8l4nllJrYxUAX8u6zNk&_nc_ht=scontent.fdad3-5.fna&oh=00_AT9AD9N7IVB4PKPqLFocnJ5QFt-bAk5EKJlSUIP6-EaRHw&oe=62BC9A7F"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
